@@ -144,8 +144,8 @@ def get_new_mail(dic, second=5):
 
 if __name__ == '__main__':
     dic = {
-        'user_email': 'vincehe2013@163.com',
-        'password': 'Czsy2020',
+        'user_email': '***@****.com',
+        'password': '*****',
     }
     print('正在监听邮件服务器端是否有新消息---')
     try:
