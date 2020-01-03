@@ -143,10 +143,11 @@ def get_new_mail(dic, second=5):
 
         time.sleep(second)
 
+
 if __name__ == '__main__':
     dic = {
-        'user_email': 'vincehe2013@163.com',
-        'password': 'Czsy2020',
+        'user_email': '***@****.com',
+        'password': '*****',
     }
     name = dic['user_email']
     pwd = dic['password']
