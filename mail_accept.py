@@ -7,6 +7,8 @@ from email.header import decode_header
 # 用来解析邮件来源
 from email.utils import parseaddr
 
+from mail_send import MyEmail
+
 
 class AcceptEmail(object):
 
@@ -141,12 +143,13 @@ def get_new_mail(dic, second=5):
 
         time.sleep(second)
 
-
 if __name__ == '__main__':
     dic = {
         'user_email': 'vincehe2013@163.com',
         'password': 'Czsy2020',
     }
+    name = dic['user_email']
+    pwd = dic['password']
     print('正在监听邮件服务器端是否有新消息---')
     try:
         iterator = get_new_mail(dic)
@@ -160,3 +163,14 @@ if __name__ == '__main__':
             print("邮件主题:%s\n发件人:%s\n发件人邮箱:%s\n邮件内容:%s" % (
                 dic["title"], dic["sender"], dic["sender_email"], dic["email_content"]))
             print('-' * 30)
+            obj = MyEmail(sender=name, receiver=dic["sender_email"], username=name, password=pwd)
+            # 创建邮件，及设置标题
+            obj.create_email('来自贺翼的返回消息')
+            # 添加邮件内容
+            obj.email_text(dic["email_content"]+" auto generate cdkey is 1234567890")
+            # 添加附件，如图片或者文件啥的，需要文件的路径
+            # obj.email_appendix('suolong.jpg')
+            # 发送邮件
+            obj.send_mail()
+else :
+    print("the __name__ is ",__name__)

@@ -9,7 +9,7 @@ from email.mime.multipart import MIMEMultipart
 
 class MyEmail(object):
 
-    def __init__(self, sender, receiver, username, password, smtp_server='smtp.qq.com'):
+    def __init__(self, sender, receiver, username, password, smtp_server='smtp.163.com'):
         self.sender = sender
         self.receiver = receiver
         self.username = username
@@ -43,7 +43,8 @@ class MyEmail(object):
 
     def connect_server(self):
         # 连接邮件服务器
-        smtpObj = smtplib.SMTP_SSL()
+        #smtpObj = smtplib.SMTP_SSL()
+        smtpObj = smtplib.SMTP()
         # 注意：如果遇到发送失败的情况（提示远程主机拒接连接），这里要使用SMTP_SSL方法
         smtpObj.connect(self.smtp_server)
         try:
